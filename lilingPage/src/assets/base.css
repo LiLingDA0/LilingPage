@@ -53,6 +53,8 @@
   --color-nav-background: var(--vt-c-nav-backgroud-light);
 
   --section-gap: 160px;
+
+  --nav-height: 4rem;
 }
 
 /* 在用户偏好深色模式时，更新语义颜色变量 */

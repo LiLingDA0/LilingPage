@@ -1,8 +1,8 @@
 <script setup lang="ts">
-  import HomeSection from './views/HomeSection.vue';
-  import AboutSection from './views/AboutSection.vue';
-  import ProjectSection from './views/ProjectSection.vue';
-  import FindmeSection from './views/FindmeSection.vue';
+  import HomeSection from './sections/HomeSection.vue';
+  import AboutSection from './sections/AboutSection.vue';
+  import ProjectSection from './sections/ProjectSection.vue';
+  import FindmeSection from './sections/FindmeSection.vue';
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -76,15 +76,15 @@
   }  
   
   #MeSpan {
-    padding: 1rem 2rem;
-    font-size: 1.5rem;
+    padding: 0.7rem 2rem;
+    font-size: 1.2rem;
     color: hsla(160, 100%, 37%, 1);
     font-weight: bold;
   }
 
   ul li {
     font-size: 1rem;
-    padding: 1rem 1rem; /* 添加左右间隔 */
+    padding: 0.3rem 1rem; 
   }
 
   @media (hover: hover) {
@@ -97,7 +97,8 @@
 
 
   nav {
-    height: 4rem;
+    min-width: 350px;
+    height: var(--height-nav);
     width: 100%;
     font-size: 12px;
     text-align: center;
@@ -115,11 +116,17 @@
 
 
   nav div {
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
   }
 
   section {
-    min-height: 1000px;
+    /* min-height: 1000px; */
+    margin-top: 4rem;
+    min-height: 100vh;
+    width: 100%;
+    height: 100%;
+    min-width: 350px;
+    
   }
 
   footer {
@@ -132,23 +139,7 @@
 
   footer p {
     margin: 0.3rem 0; /* 调整段落之间的间距 */
-  }
-
-  #LilingSpan {
-    color: rgb(249, 208, 6);
-    padding: 0 0.5rem;
-    font-size: 1rem;
-    text-size-adjust: 100%;
-    font-weight: bold;
-  }
-
-  #WebSpan {
-    color: rgb(6, 168, 249);
-    padding: 0 0.5rem;
-    font-size: 1rem;
-    text-size-adjust: 100%;
-    font-weight: bold;
-  }
+  } 
 
 
   @media (min-width: 1024px) {
@@ -159,7 +150,15 @@
     }
 
     nav div {
-      margin-bottom: 0;
+      margin-bottom: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+
+
+    ul li {
+      font-size: 1rem;
+      padding: 1rem 1rem; /* 添加左右间隔 */
     }
   }
 </style>
