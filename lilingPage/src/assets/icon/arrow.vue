@@ -178,12 +178,12 @@ onUnmounted(() => {
 }
 
 /* 响应式旋转控制 */
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   .arrow-container {
     transform: rotate(0deg);
   }
 }
-@media (max-width: 1023px) {
+@media (max-width: 1025px) {
   .arrow-container {
     transform: rotate(90deg);
     margin-top: 12px; /* 方向补偿 */

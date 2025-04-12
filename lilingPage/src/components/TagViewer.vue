@@ -136,12 +136,12 @@
       else if (viewportWidth >= 1440) size = 700;
       else if (viewportWidth >= 1236) size = 700;
       else if (viewportWidth >= 1200) size = 600;
-      else if (viewportWidth >= 1024) size = 500;
+      else if (viewportWidth >= 1025) size = 500;
       else if (viewportWidth >= 960) size = 700;
       else if (viewportWidth >= 840) size = 600;
-      else if (viewportWidth >= 720) size = 500;
-      else if (viewportWidth >= 640) size = 400;
-      else if (viewportWidth >= 420) size = 200;
+      else if (viewportWidth >= 720) size = 600;
+      else if (viewportWidth >= 640) size = 500;
+      else if (viewportWidth >= 420) size = 350;
       
       container.style.width = `${size}px`;
       container.style.height = `${size}px`;
@@ -213,38 +213,38 @@
   .graph-container {
     position: relative; /* 确保画布定位上下文 */
     z-index: 1;
-    width: 200px;
-    height: 200px;
+    width: 35%;
+    height: 350px;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
   @media (min-width: 300px) and (max-width: 420px) {
-    .graph-container { width: 200px; height: 200px; }
+    .graph-container { width: 350px; height: 350px; }
   }
 
   @media (min-width: 420px) and (max-width: 640px) {
-    .graph-container { width: 300px; height: 300px; }
-  }
-
-  @media (min-width: 640px) and (max-width: 720px) {
     .graph-container { width: 400px; height: 400px; }
   }
 
-  @media (min-width: 720px) and (max-width: 840px) {
+  @media (min-width: 640px) and (max-width: 720px) {
     .graph-container { width: 500px; height: 500px; }
+  }
+
+  @media (min-width: 720px) and (max-width: 840px) {
+    .graph-container { width: 600px; height: 600px; }
   }
 
   @media (min-width: 840px) and (max-width: 960px) {
     .graph-container { width: 600px; height: 600px; }
   }
 
-  @media (min-width: 960px) and (max-width: 1024px) {
+  @media (min-width: 960px) and (max-width: 1025px) {
     .graph-container { width: 700px; height: 700px; }
   }
 
-  @media (min-width: 1024px) and (max-width: 1200px) {
+  @media (min-width: 1025px) and (max-width: 1200px) {
     .graph-container { width: 500px; height: 500px; }
   }
 

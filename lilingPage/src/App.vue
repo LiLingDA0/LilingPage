@@ -1,10 +1,9 @@
 <script lang="ts">
-  import { defineComponent } from 'vue';
+  import { defineComponent, computed, ref } from 'vue';
   import HomeSection from './sections/HomeSection.vue';
   import AboutSection from './sections/AboutSection.vue';
   import ProjectSection from './sections/ProjectSection.vue';
   import FindmeSection from './sections/FindmeSection.vue';  
-  import { ref, onMounted } from 'vue'
   import { useThemeStore } from '@/stores/theme'
 
   export default defineComponent({
@@ -15,12 +14,47 @@
       ProjectSection,
       FindmeSection
     },
+    setup() { // 新增setup函数
+      const isDesktopEnvironment = computed(() => {
+        const userAgent = navigator.userAgent.toLowerCase()
+        const isMobile = /iphone|ipod|android|blackberry|windows phone/g.test(userAgent)
+        const isTablet = /(ipad|tablet|playbook|silk)|(android(?!.*mobile))/g.test(userAgent)
+        return !isMobile && !isTablet
+      })
+
+      const isMobile = ref(false)
+      const hasShownTip = ref(false)
+
+      const checkViewport = () => {
+        isMobile.value = window.innerWidth < 1024
+        if (!isDesktopEnvironment.value && window.innerWidth <= 1024) {
+          showTip()
+        }
+      }
+
+      const showTip = () => {
+        if (!hasShownTip.value) {
+          alert('在电脑端访问体验更佳，部分功能需要鼠标，横置手机可以提升体验')
+          hasShownTip.value = true
+        }
+      }
+
+      checkViewport()
+      window.addEventListener('resize', checkViewport)
+      // 初始检测
+      if (!isDesktopEnvironment.value && window.innerWidth <= 1024) {
+        showTip()
+      }
+
+      return { isDesktopEnvironment, isMobile, hasShownTip, checkViewport, showTip }
+    },
     data(){
       return {
         theme: 'light'
       }
     },
     mounted() {
+
       const themeStore = useThemeStore()
       themeStore.initSystemThemeListener()
       // 应用初始化时读取用户设置
@@ -45,10 +79,12 @@
         toggleTheme(){
           useThemeStore().toggleTheme()
         } 
-    }
+    }   
 
     
   })
+
+  
   
 
 </script>
@@ -217,4 +253,6 @@
       padding: 1rem 1rem; /* 添加左右间隔 */
     }
   }
+  
+
 </style>

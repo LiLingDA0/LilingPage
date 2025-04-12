@@ -10,6 +10,42 @@
 
 <body>
   <div id="app"></div>
+  <script>
+    // 检测浏览器是否支持 Vue 3 所需特性（如 Proxy）
+    const isSupported = 'Proxy' in window && 'Promise' in window
+
+    if (!isSupported) {
+      document.getElementById('app').style.display = 'none'
+      document.write(`
+        <div style="
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(255,255,255,0.9);
+          z-index: 9999;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: Arial;
+          padding: 20px;
+          text-align: center;
+        ">
+          <div>
+            <h2>浏览器兼容性问题</h2>
+            <p>当前浏览器不支持部分必要特性，请使用以下浏览器访问：</p>
+            <ul style="text-align: left; display: inline-block">
+              <li>Chrome 50+</li>
+              <li>Firefox 52+</li>
+              <li>Safari 10+</li>
+              <li>Edge 15+</li>
+            </ul>
+          </div>
+        </div>
+      `)
+    }
+  </script>
   <script type="module" src="/src/main.ts"></script>
 </body>
 

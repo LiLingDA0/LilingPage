@@ -23,7 +23,7 @@
       },
       data() {
         return {
-          currentPath: 'src/assets/tag/MyHobbyTag.json',
+          currentPath: '/tag/MyHobbyTag.json',
           activeTab: 'hobby',
           refreshKey: 0, // 新增刷新标识
           isDarkTheme: false,
@@ -68,7 +68,7 @@
         },
         handleResize() {
           const baseWidth = 1000; // 设计基准宽度
-          this.codeIconSize = Math.min(70, (window.innerWidth / baseWidth) * 70);
+          this.codeIconSize = Math.min(50, (window.innerWidth / baseWidth) * 50);
         }
       }
     });
@@ -78,14 +78,14 @@
   <div class="SectionRoot"> 
     <div id="HomeSection">      
       <div class="HSLR" id="HomeSectionLeft">
-        <p>我是 <span class="LilingSpan"> LiLing </span></p> 
+        <p>我是&nbsp; <span class="LilingSpan"> LiLing </span>&nbsp;</p> 
         <br>        
         <p>来自&nbsp;<span class="zjwzSpan" @click="gotowZWebsite" style="cursor: pointer;">温州</span></p>
         <div>
-        <span>目前在 <span class="HNCUSpan" @click="gotoHNCUWebsite" style="cursor: pointer;">HNCU</span><img src="../assets/logo/hncu.png" class="logo" id="HNCULogo" @click="gotoHNCUWebsite" style="cursor: pointer;">
+        <span>目前在 <span class="HNCUSpan" @click="gotoHNCUWebsite" style="cursor: pointer;">&nbsp;HNCU&nbsp;</span><img src="../assets/logo/hncu.png" class="logo" id="HNCULogo" @click="gotoHNCUWebsite" style="cursor: pointer;">
           <br>
           <span>学习
-            <div class="major-container" @click="changeTagType('src/assets/tag/MyMajorTag.json', 'major') " style="cursor: pointer;">
+            <div class="major-container" @click="changeTagType('/tag/MyMajorTag.json', 'major') " style="cursor: pointer;">
               <span class="GIESpan">地理空间信息工程</span>
               <span class="GIESpanEN">Geospatial Information Engineering</span>
             </div>
@@ -93,7 +93,7 @@
         </span>
         </div>
         <p>
-          喜欢<span class="CodeSpan" @click="gotoGetHubWebsite" style="cursor: pointer;">编程</span>
+          喜欢<span class="CodeSpan" @click="gotoGetHubWebsite" style="cursor: pointer;">&nbsp;编程&nbsp;</span>
           <codeIcon 
             :size="codeIconSize"
             @click="gotoGetHubWebsite" 
@@ -239,10 +239,9 @@
 
 
 .logo {  
-  width: clamp(2rem, 4vw, 4rem); /* 图片动态大小 */
+  width: clamp(1rem, 4vw, 4rem); /* 图片动态大小 */
   height: auto; /* 保持比例 */
   margin-left: 0.5rem;
-  margin-top: 1rem;
   margin-right: 0.5rem;
   animation: shake 1.5s ease-in-out infinite; /* 添加动画 */
 }
@@ -305,18 +304,19 @@
   display: inline-block;
   position: relative;
   vertical-align: top;
+  width: 45%;
 }
 
 .GIESpanEN {
   display: block;
   width: 100%;
   text-align: center;
-  font-size: clamp(0.2rem, 4vw, 1.2rem);
+  transform: scale(0.5);
+  font-size: clamp(1rem, 4vw, 3rem);  
   white-space: nowrap;
-  /* transform: scale(0.8); */
-  transform-origin: center top;
-  margin-top: -0.5em;
-  margin-bottom: -1em;
+  transform-origin: left;
+  margin-top: -8%;
+  margin-bottom: -10%;
 }
 
 #HomeSectionLeft p {
@@ -387,10 +387,26 @@
   
   .logo {
     width: 3rem;
-    margin: 0.5rem;
+    margin-left: 0.2rem;
+    margin-top: 0.5rem;
+    margin-right: 0.2rem;
   }
   
 }
+
+@media screen and (max-width: 720px) {
+  #HomeSectionLeft {
+    font-size: 1.7rem;
+  }
+  
+  .logo {
+    width: 2rem;
+    margin-left: 0.1rem;
+    margin-top: 0.1rem;
+    margin-right: 0.1rem;
+  }
+}
+
 
 @media screen and (max-width: 480px) {
   #HomeSectionLeft {
@@ -398,7 +414,8 @@
   }
   
   .logo {
-    width: 2rem;
+    width: 1rem;
+    margin: 0;
   }
 }
 
