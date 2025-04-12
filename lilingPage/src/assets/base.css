@@ -25,12 +25,24 @@
   --vt-c-footer-background-dark: rgba(60, 60, 60, 0.12);
 
   --vt-c-text-hover-color-light: hsl(158, 100%, 26%);
-  --vt-c-text-hover-color-dark: hsl(158, 100%, 34%);
+  --vt-c-text-hover-color-dark: #00ad6e;
   --vt-c-text-hover-backcolor-light: hsla(158, 47%, 64%, 0.192);
   --vt-c-text-hover-backcolor-dark: hsla(0, 0%, 24%, 0.496);
 
   --vt-c-nav-backgroud-light: hsla(0, 0%, 94%, 0.817);
   --vt-c-nav-backgroud-dark: hsla(0, 0%, 24%, 0.489);
+
+  --vt-c-Tag-Choose-default-color-light: #606266;
+  --vt-c-Tag-Choose-default-color-dark: #606266;
+  --vt-c-Tag-Choose-active-color-light: #409eff;
+  --vt-c-Tag-Choose-active-color-dark: #409eff;
+  --vt-c-Tag-Choose-after-color-light: rgba(64, 158, 255, 0.15);
+  --vt-c-Tag-Choose-after-color-dark: rgba(64, 158, 255, 0.15);
+  --vt-c-Tag-Choose-hover-color-light: #409eff;  
+  --vt-c-Tag-Choose-hover-color-dark: #409eff;
+  --vt-c-Tag-Choose-glow-color-light: #409eff66;
+  --vt-c-Tag-Choose-glow-color-dark: #409eff66;
+
 }
 
 /* 定义项目特定的语义颜色变量 */
@@ -52,13 +64,20 @@
 
   --color-nav-background: var(--vt-c-nav-backgroud-light);
 
+
+  --color-tag-choose-default: var(--vt-c-Tag-Choose-default-color-light);
+  --color-tag-choose-active: var(--vt-c-Tag-Choose-active-color-light);
+  --color-tag-choose-after: var(--vt-c-Tag-Choose-after-color-light);
+  --color-tag-choose-hover: var(--vt-c-Tag-Choose-hover-color-light);
+  --color-tag-choose-glow: var(--vt-c-Tag-Choose-glow-color-light);
+
   --section-gap: 160px;
 
   --nav-height: 4rem;
 }
 
 /* 在用户偏好深色模式时，更新语义颜色变量 */
-:root[data-theme="dark"] {
+:root[user-theme="dark"] {
   --color-background: var(--vt-c-black);
   --color-background-soft: var(--vt-c-black-soft);
   --color-background-mute: var(--vt-c-black-mute);
@@ -75,6 +94,12 @@
   --backcolor-text-hover: var(--vt-c-text-hover-backcolor-dark);
 
   --color-nav-background: var(--vt-c-nav-backgroud-dark);
+
+  --color-tag-choose-default: var(--vt-c-Tag-Choose-default-color-dark);
+  --color-tag-choose-active: var(--vt-c-Tag-Choose-active-color-dark);
+  --color-tag-choose-after: var(--vt-c-Tag-Choose-after-color-dark);
+  --color-tag-choose-hover: var(--vt-c-Tag-Choose-hover-color-dark);
+  --color-tag-choose-glow: var(--vt-c-Tag-Choose-glow-color-dark);
 
 }
 

@@ -1,40 +1,55 @@
-<script setup lang="ts">
-  
+<script lang="ts">
+  import { defineComponent } from 'vue';
   import HomeSection from './sections/HomeSection.vue';
   import AboutSection from './sections/AboutSection.vue';
   import ProjectSection from './sections/ProjectSection.vue';
   import FindmeSection from './sections/FindmeSection.vue';  
   import { ref, onMounted } from 'vue'
+  import { useThemeStore } from '@/stores/theme'
 
-  const theme = ref<'light'|'dark'>('light') // 主题状态
-
-
-  declare module "@tsparticles/vue3";
-  
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const offsetTop = element.offsetTop;
-      const offset = 4 * 16; // 4rem 假设 1rem = 16px
-      window.scrollTo({
-        top: offsetTop - offset,
-        behavior: 'smooth'
-      });
+  export default defineComponent({
+    name: 'App',
+    components: {
+      HomeSection,
+      AboutSection,
+      ProjectSection,
+      FindmeSection
+    },
+    data(){
+      return {
+        theme: 'light'
+      }
+    },
+    mounted() {
+      const themeStore = useThemeStore()
+      themeStore.initSystemThemeListener()
+      // 应用初始化时读取用户设置
+      const savedTheme = localStorage.getItem('user-theme')
+      if (savedTheme) {
+        themeStore.theme = savedTheme as 'light' | 'dark'
+        this.theme = themeStore.theme
+      }
+    },
+    methods:{
+        scrollToSection(id: string){
+          const element = document.getElementById(id);
+          if (element) {
+            const offsetTop = element.offsetTop;
+            const offset = 5.5 * 16; // 4rem 假设 1rem = 16px
+              window.scrollTo({
+                top: offsetTop - offset,
+                behavior: 'smooth'
+              });
+            }
+        },
+        toggleTheme(){
+          useThemeStore().toggleTheme()
+        } 
     }
-  };
 
-  const toggleTheme = () => {
-    theme.value = theme.value === 'light' ? 'dark' : 'light'
-    document.documentElement.setAttribute('data-theme', theme.value)
-    localStorage.setItem('theme', theme.value)
-  }
-
-  onMounted(() => {
-    var isDarkTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
-    const savedTheme = isDarkTheme ? 'dark' : 'light'
-    theme.value = savedTheme
-    document.documentElement.setAttribute('data-theme', savedTheme)
+    
   })
+  
 
 </script>
 
@@ -43,7 +58,7 @@
     <div>
       <span class="MeSpan">Me    
         <img 
-          src="./assets/sun.svg" 
+          src="./assets/icon/light.svg" 
           id="swithDarkLight"
           @click="toggleTheme" 
         >
@@ -96,6 +111,7 @@
     margin-left: 0.5rem;
     width: 30px;
     height: 30px;
+    cursor: pointer ;
   }
 
   ul {
@@ -108,10 +124,8 @@
   }  
   
   .MeSpan {
-    padding: 0.7rem 2rem;
-    font-size: 1.2rem;
-    color: #00bd7e;
-    font-weight: bold;
+    padding: 0.3rem 2rem;
+    font-size: 1.5rem;
   }
 
   ul li {

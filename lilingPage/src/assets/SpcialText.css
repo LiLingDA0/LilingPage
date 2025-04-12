@@ -1,7 +1,6 @@
   .LilingSpan {
     color: rgba(255, 234, 0, 0.966);
     padding: 0 0.5rem;
-    font-size: 1rem;
     text-size-adjust: 100%;
     font-weight: bold;
     display: inline-block;
@@ -11,11 +10,14 @@
   .GIESpan {
     color: hsla(160, 100%, 37%, 1);
     padding: 0 0.5rem;
-    font-size: 1rem;
     text-size-adjust: 100%;
     font-weight: bold;
     display: inline-block;
     white-space: nowrap; /* 防止短词换行 */
+  }
+
+  .GIESpanEN {
+    color: hsla(160, 100%, 37%, 1);
   }
 
   .HNCUSpan {
@@ -45,17 +47,16 @@
 
   .CodeSpan{
     padding: 1rem 2rem;
-    color: rgb(0, 189, 60);
+    color: #00bd3c;
     font-weight: bold;
     display: inline-block;
     white-space: nowrap; /* 防止短词换行 */
 
   }
 
-  #WebSpan {
+  .WebSpan {
     color: rgb(6, 168, 249);
     padding: 0 0.5rem;
-    font-size: 1rem;
     text-size-adjust: 100%;
     font-weight: bold;
     display: inline-block;

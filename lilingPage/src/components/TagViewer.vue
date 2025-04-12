@@ -23,14 +23,16 @@
       nodeFill: '#00E0A0',    // 荧光青绿，提升100%亮度
       nodeStroke: '#007550',  // 深海绿增强轮廓对比
       labelColor: '#1A2E40',  // 深蓝灰保持可读性
-      edgeStroke: '#90A4B8'   // 浅冰蓝提升边缘活力
+      edgeStroke: '#90A4B8',   // 浅冰蓝提升边缘活力
+      helpTextColor: '#1A2E40'
   }
   if (props.theme === 'dark') {
     color={
         nodeFill: '#6BD0A880',  // 半透明荧光绿增强科技感
         nodeStroke: '#1A4430',  // 深青绿保持轮廓清晰
         labelColor: '#c3e0f5',  // 亮冰蓝提升可读性
-        edgeStroke: '#3A7D5C'   // 青灰色保持边缘可见但不突兀
+        edgeStroke: '#3A7D5C',   // 青灰色保持边缘可见但不突兀
+        helpTextColor: '#c3e0f5'
     }
   }
 
@@ -129,15 +131,17 @@
       
       // 根据视口宽度设置尺寸
       let size = 300;
-      if (viewportWidth >= 1440) size = 700;
+      if(viewportWidth >= 1920) size = 900;
+      else if(viewportWidth >= 1700) size = 800;
+      else if (viewportWidth >= 1440) size = 700;
       else if (viewportWidth >= 1236) size = 700;
       else if (viewportWidth >= 1200) size = 600;
       else if (viewportWidth >= 1024) size = 500;
-      else if (viewportWidth >= 960) size = 900;
-      else if (viewportWidth >= 840) size = 800;
-      else if (viewportWidth >= 720) size = 700;
-      else if (viewportWidth >= 640) size = 600;
-      else if (viewportWidth >= 420) size = 400;
+      else if (viewportWidth >= 960) size = 700;
+      else if (viewportWidth >= 840) size = 600;
+      else if (viewportWidth >= 720) size = 500;
+      else if (viewportWidth >= 640) size = 400;
+      else if (viewportWidth >= 420) size = 200;
       
       container.style.width = `${size}px`;
       container.style.height = `${size}px`;
@@ -172,58 +176,72 @@
 
 <template>
   <div class="TagViewer">
+    <span id="HelpText">左键拖动&滚轮缩放</span>
+    <span id="HelpText">点击父节点可以收起子节点</span>
     <div class="graph-container" id="mountNode"></div>
   </div>
 </template>
 
 <style scoped>
-  ThemeLight{
-    /* 默认浅色主题 */
-    --node-fill: #00bd7e;
-    --node-stroke: #013926;
-    --label-color: #2c3e50;
-    --edge-stroke: #A3B1BF;
+  .TagViewer {
+    position: relative;
   }
 
-  ThemeDark{
-    .graph-container {
-      --node-fill: #1890ff;
-      --node-stroke: #003a8c;
-      --label-color: #c3e0f5;
-      --edge-stroke: #434343;
-    }
+  .graph-container{
+    cursor: pointer;
+  }
+
+  #HelpText {
+    position: absolute;
+    bottom: 30px;
+    right: 10px;
+    z-index: 2; /* 确保显示在G6画布上层 */
+    color: v-bind('color.helpTextColor');
+    font-size: clamp(0.8rem, 1.2vw, 1.2rem); /* 流体字体大小 */
+    /* background: rgba(255,255,255,0.9); */
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: block;
+    width: max-content;
+  }
+
+  /* 调整第二个提示的位置 */
+  #HelpText:nth-of-type(2) {
+    bottom: 0px; /* 下移第二个提示 */
   }
 
   .graph-container {
-    width: 300px;
-    height: 300px;
+    position: relative; /* 确保画布定位上下文 */
+    z-index: 1;
+    width: 200px;
+    height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
   @media (min-width: 300px) and (max-width: 420px) {
-    .graph-container { width: 300px; height: 300px; }
+    .graph-container { width: 200px; height: 200px; }
   }
 
   @media (min-width: 420px) and (max-width: 640px) {
-    .graph-container { width: 400px; height: 400px; }
+    .graph-container { width: 300px; height: 300px; }
   }
 
   @media (min-width: 640px) and (max-width: 720px) {
-    .graph-container { width: 600px; height: 600px; }
+    .graph-container { width: 400px; height: 400px; }
   }
 
   @media (min-width: 720px) and (max-width: 840px) {
-    .graph-container { width: 700px; height: 700px; }
+    .graph-container { width: 500px; height: 500px; }
   }
 
   @media (min-width: 840px) and (max-width: 960px) {
-    .graph-container { width: 800px; height: 800px; }
+    .graph-container { width: 600px; height: 600px; }
   }
 
   @media (min-width: 960px) and (max-width: 1024px) {
-    .graph-container { width: 900px; height: 900px; }
+    .graph-container { width: 700px; height: 700px; }
   }
 
   @media (min-width: 1024px) and (max-width: 1200px) {
@@ -241,4 +259,13 @@
   @media (min-width: 1440px) {
     .graph-container { width: 700px; height: 700px; }
   }
+
+  @media (min-width: 1700px) {
+    .graph-container { width: 800px; height: 800px; }
+  }
+
+  @media (min-width: 1920px) {
+    .graph-container { width: 900px; height: 900px; }
+  }
+
 </style>
