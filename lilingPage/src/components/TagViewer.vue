@@ -197,7 +197,7 @@
     right: 10px;
     z-index: 2; /* 确保显示在G6画布上层 */
     color: v-bind('color.helpTextColor');
-    font-size: clamp(0.8rem, 1.2vw, 1.2rem); /* 流体字体大小 */
+    font-size: clamp(0.5rem, 1.2vw, 1rem); /* 流体字体大小 */
     /* background: rgba(255,255,255,0.9); */
     padding: 4px 8px;
     border-radius: 4px;

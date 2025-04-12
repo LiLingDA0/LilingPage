@@ -142,6 +142,8 @@
 
 <style scoped>
 
+
+
 .icon-arrow {
   cursor: pointer ;
 }
@@ -250,10 +252,9 @@
 #HomeSectionLeft{
   display: block;
   margin-top: 5rem;
-  margin-left: 10rem;
   align-items: center; /* 垂直居中 */
   font-size: clamp(0rem, 4vw, 3.5rem); /* 动态字体大小 */
-  margin-left: clamp(0rem, 10vw, 10rem); /* 动态边距 */
+  margin-left: clamp(0rem, 10vw, 5rem); /* 动态边距 */
 }
 
 #HomeSectionLeft .LilingSpan {

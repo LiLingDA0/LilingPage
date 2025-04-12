@@ -7,7 +7,7 @@
 </script>
 <template>
   <div id = "SectionRoot">  
-    ABOUT
+
   </div>
 </template>
 
