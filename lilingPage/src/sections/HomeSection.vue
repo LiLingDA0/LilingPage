@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import { defineComponent } from 'vue';
     import TagViewer from "../components/TagViewer.vue"; // 确保路径和文件名正确
     import arrowIcon from "../assets/icon/arrow.vue";
@@ -58,7 +58,7 @@
           }
         },
         // 新增方法
-        changeTagType(path, type) {
+        changeTagType(path:string, type:string) {
           this.currentPath = path
           this.activeTab = type
         },
@@ -239,7 +239,7 @@
 
 
 .logo {  
-  width: clamp(2rem, 4vw, 4.5rem); /* 图片动态大小 */
+  width: clamp(2rem, 4vw, 4rem); /* 图片动态大小 */
   height: auto; /* 保持比例 */
   margin-left: 0.5rem;
   margin-top: 1rem;
@@ -253,12 +253,12 @@
   display: block;
   margin-top: 5rem;
   align-items: center; /* 垂直居中 */
-  font-size: clamp(0rem, 4vw, 3.5rem); /* 动态字体大小 */
-  margin-left: clamp(0rem, 10vw, 5rem); /* 动态边距 */
+  font-size: clamp(0rem, 4vw, 3rem); /* 动态字体大小 */
+  margin-left: clamp(0rem, 10vw, 2rem); /* 动态边距 */
 }
 
 #HomeSectionLeft .LilingSpan {
-  font-size: clamp(1.5rem, 4vw, 5rem); /* 动态字体大小 */
+  font-size: clamp(1.5rem, 4vw, 4.5rem); /* 动态字体大小 */
   display: inline-block; /* 确保动画容器有效 */
   position: relative;
   cursor: pointer;
@@ -298,7 +298,7 @@
 }
 
 #HomeSectionLeft .GIESpan {
-  font-size: clamp(1rem, 4vw, 3.5rem); /* 动态字体大小 */
+  font-size: clamp(1rem, 4vw, 3rem); /* 动态字体大小 */
 }
 
 .major-container {
