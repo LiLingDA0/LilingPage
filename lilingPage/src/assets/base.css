@@ -58,28 +58,31 @@
 }
 
 /* 在用户偏好深色模式时，更新语义颜色变量 */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: var(--vt-c-black);
-    --color-background-soft: var(--vt-c-black-soft);
-    --color-background-mute: var(--vt-c-black-mute);
+:root[data-theme="dark"] {
+  --color-background: var(--vt-c-black);
+  --color-background-soft: var(--vt-c-black-soft);
+  --color-background-mute: var(--vt-c-black-mute);
 
-    --color-border: var(--vt-c-divider-dark-2);
-    --color-border-hover: var(--vt-c-divider-dark-1);
+  --color-border: var(--vt-c-divider-dark-2);
+  --color-border-hover: var(--vt-c-divider-dark-1);
 
-    --color-heading: var(--vt-c-text-dark-1);
-    --color-text: var(--vt-c-text-dark-2);
+  --color-heading: var(--vt-c-text-dark-1);
+  --color-text: var(--vt-c-text-dark-2);
 
-    --color-footer-background: var(--vt-c-footer-background-dark);
-  
-    --color-text-hover: var(--vt-c-text-hover-color-dark);
-    --backcolor-text-hover: var(--vt-c-text-hover-backcolor-dark);
+  --color-footer-background: var(--vt-c-footer-background-dark);
 
-    --color-nav-background: var(--vt-c-nav-backgroud-dark);
+  --color-text-hover: var(--vt-c-text-hover-color-dark);
+  --backcolor-text-hover: var(--vt-c-text-hover-backcolor-dark);
 
-  }
+  --color-nav-background: var(--vt-c-nav-backgroud-dark);
+
 }
 
+:root {
+  transition: 
+    background-color 0.5s ease,
+    color 0.3s ease;
+}
 /* 重置默认样式，确保一致的盒模型和字体权重 */
 *,
 *::before,

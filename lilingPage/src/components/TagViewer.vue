@@ -7,9 +7,32 @@
   const props = defineProps({
     dataPath: {
       type: String,
-      default: 'src/assets/testTag.json' // 默认路径
+      default: 'src/assets/tag/testTag.json' // 默认路径
+    },
+    theme: {
+      type: String,
+      default: 'light'
     }
   });
+
+  console.log(props.dataPath);
+  console.log(props.theme)
+
+  //默认light
+  var color={
+      nodeFill: '#00E0A0',    // 荧光青绿，提升100%亮度
+      nodeStroke: '#007550',  // 深海绿增强轮廓对比
+      labelColor: '#1A2E40',  // 深蓝灰保持可读性
+      edgeStroke: '#90A4B8'   // 浅冰蓝提升边缘活力
+  }
+  if (props.theme === 'dark') {
+    color={
+        nodeFill: '#6BD0A880',  // 半透明荧光绿增强科技感
+        nodeStroke: '#1A4430',  // 深青绿保持轮廓清晰
+        labelColor: '#c3e0f5',  // 亮冰蓝提升可读性
+        edgeStroke: '#3A7D5C'   // 青灰色保持边缘可见但不突兀
+    }
+  }
 
   // 使用ref来存储数据
   const data = ref(null);
@@ -25,8 +48,8 @@
     }
   };
 
-  // 构建图的函数
-  const BuildGraph = (data) => {
+   // 构建图的函数
+   const BuildGraph = (data) => {
     // 获取容器的尺寸
     const container = document.getElementById('mountNode');
     const width = container.offsetWidth;
@@ -57,14 +80,14 @@
       },
       defaultEdge: {
         style: {
-          stroke: '#A3B1BF'
+          stroke: color.edgeStroke // 使用CSS变量
         }
       },
       layout: function layout(data) {
         var result = Hierarchy.dendrogram(data, {
           direction: 'LR', // H / V / LR / RL / TB / BT
-          nodeSep: 20,
-          rankSep: 100
+          nodeSep: 40,
+          rankSep: 150
         });
         G6.Util.radialLayout(result);
         return result;
@@ -72,18 +95,24 @@
     });
 
     graph.node(function(node) {
+      const depth = node.depth || 0; // 获取节点层级
+      const baseSize = 26 + (5 * (5 - Math.min(depth, 5))); // 层级越浅尺寸越大
+      const fontSize = 12 + (2 * (5 - Math.min(depth, 5))); // 层级越浅字体越大
+      
       return {
-        size: 26,
-        style: {
-          fill: '#00bd7e',
-          stroke: '#013926'
-        },
+        size: baseSize,
         label: node.id,
-        labelCfg: {
         style: {
-          fill: '#f2f2f2' // 使用CSS变量
+          fill: color.nodeFill,
+          stroke: color.nodeStroke
+        },
+        labelCfg: {
+          avoidLabelOverlap: true,
+          style: {
+            fontSize,
+            fill: color.labelColor 
+          }
         }
-      }
       };
     });
 
@@ -92,20 +121,37 @@
     graph.fitView();
     
   };
-
   // 监听窗口的resize事件
   const handleResize = () => {
     if (graph) {
       const container = document.getElementById('mountNode');
-      const width = container.offsetWidth;
-      const height = container.offsetHeight;
-      graph.changeSize(width, height);
+      const viewportWidth = window.innerWidth;
+      
+      // 根据视口宽度设置尺寸
+      let size = 300;
+      if (viewportWidth >= 1440) size = 700;
+      else if (viewportWidth >= 1236) size = 700;
+      else if (viewportWidth >= 1200) size = 600;
+      else if (viewportWidth >= 1024) size = 500;
+      else if (viewportWidth >= 960) size = 900;
+      else if (viewportWidth >= 840) size = 800;
+      else if (viewportWidth >= 720) size = 700;
+      else if (viewportWidth >= 640) size = 600;
+      else if (viewportWidth >= 420) size = 400;
+      
+      container.style.width = `${size}px`;
+      container.style.height = `${size}px`;
+      
+      graph.changeSize(size, size);
       graph.fitView();
     }
   };
 
   // 在组件挂载时调用
   onMounted(async () => {
+    console.log('Component TagV mounted.');
+    console.log("TagViwer:"+props.dataPath);
+    console.log("TagViwer:"+props.theme)
     await loadData();
     if (data.value) {
       BuildGraph(data.value);
@@ -131,16 +177,68 @@
 </template>
 
 <style scoped>
+  ThemeLight{
+    /* 默认浅色主题 */
+    --node-fill: #00bd7e;
+    --node-stroke: #013926;
+    --label-color: #2c3e50;
+    --edge-stroke: #A3B1BF;
+  }
+
+  ThemeDark{
+    .graph-container {
+      --node-fill: #1890ff;
+      --node-stroke: #003a8c;
+      --label-color: #c3e0f5;
+      --edge-stroke: #434343;
+    }
+  }
+
   .graph-container {
+    width: 300px;
+    height: 300px;
     display: flex;
-    justify-content: center; /* 水平居中 */
-    align-items: center; /* 垂直居中 */
-    min-width: 300px;
-    min-height: 300px;
-    max-width: 800px;
-    max-height: 800px;
-    width: 100%;
-    height: 100%;
-    /* background-color: hsla(156, 20%, 73%, 0.116); */
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media (min-width: 300px) and (max-width: 420px) {
+    .graph-container { width: 300px; height: 300px; }
+  }
+
+  @media (min-width: 420px) and (max-width: 640px) {
+    .graph-container { width: 400px; height: 400px; }
+  }
+
+  @media (min-width: 640px) and (max-width: 720px) {
+    .graph-container { width: 600px; height: 600px; }
+  }
+
+  @media (min-width: 720px) and (max-width: 840px) {
+    .graph-container { width: 700px; height: 700px; }
+  }
+
+  @media (min-width: 840px) and (max-width: 960px) {
+    .graph-container { width: 800px; height: 800px; }
+  }
+
+  @media (min-width: 960px) and (max-width: 1024px) {
+    .graph-container { width: 900px; height: 900px; }
+  }
+
+  @media (min-width: 1024px) and (max-width: 1200px) {
+    .graph-container { width: 500px; height: 500px; }
+  }
+
+  @media (min-width: 1200px) and (max-width: 1236px) {
+    .graph-container { width: 600px; height: 600px; }
+  }
+
+  @media (min-width: 1236px) and (max-width: 1440px) {
+    .graph-container { width: 700px; height: 700px; }
+  }
+
+  @media (min-width: 1440px) {
+    .graph-container { width: 700px; height: 700px; }
   }
 </style>

@@ -1,9 +1,16 @@
 <script setup lang="ts">
+  
   import HomeSection from './sections/HomeSection.vue';
   import AboutSection from './sections/AboutSection.vue';
   import ProjectSection from './sections/ProjectSection.vue';
-  import FindmeSection from './sections/FindmeSection.vue';
+  import FindmeSection from './sections/FindmeSection.vue';  
+  import { ref, onMounted } from 'vue'
 
+  const theme = ref<'light'|'dark'>('light') // 主题状态
+
+
+  declare module "@tsparticles/vue3";
+  
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -15,12 +22,32 @@
       });
     }
   };
+
+  const toggleTheme = () => {
+    theme.value = theme.value === 'light' ? 'dark' : 'light'
+    document.documentElement.setAttribute('data-theme', theme.value)
+    localStorage.setItem('theme', theme.value)
+  }
+
+  onMounted(() => {
+    var isDarkTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const savedTheme = isDarkTheme ? 'dark' : 'light'
+    theme.value = savedTheme
+    document.documentElement.setAttribute('data-theme', savedTheme)
+  })
+
 </script>
 
 <template>
   <nav>
     <div>
-      <span id="MeSpan">Me</span>
+      <span class="MeSpan">Me    
+        <img 
+          src="./assets/sun.svg" 
+          id="swithDarkLight"
+          @click="toggleTheme" 
+        >
+      </span>
     </div>
     <ul>
       <li @click="scrollToSection('home')">首页</li>
@@ -31,23 +58,23 @@
     </ul>
   </nav>
   <main>
-    <section id="home">
-      <HomeSection/>
-    </section>
-    <section id="about">
-      <AboutSection/>
-    </section>
-    <section id="project">
-      <ProjectSection/>    
-    </section>
-    <section id="findme">
-      <FindmeSection/>
-    </section>
+      <section id="home">
+        <HomeSection/>
+      </section>
+      <section id="about">
+        <AboutSection/>
+      </section>
+      <section id="project">
+        <ProjectSection/>    
+      </section>
+      <section id="findme">
+        <FindmeSection/>
+      </section>
   </main>
  
   <footer>
     <p>
-      这是 <span id="LilingSpan">Li Ling</span> 的 <span id="WebSpan">Web</span> 课程作业,使用了:  
+      这是 <span class="LilingSpan">Li Ling</span> 的 <span class="WebSpan">Web</span> 课程作业,使用了:  
     </p>
     <p>
       <a href="https://v3.vuejs.org/guide/introduction.html" target="_blank" rel="noopener">Vue.js</a>
@@ -65,6 +92,11 @@
 </template>
 
 <style scoped>
+  #swithDarkLight{
+    margin-left: 0.5rem;
+    width: 30px;
+    height: 30px;
+  }
 
   ul {
     list-style: none;
@@ -75,16 +107,17 @@
     margin: 0;
   }  
   
-  #MeSpan {
+  .MeSpan {
     padding: 0.7rem 2rem;
     font-size: 1.2rem;
-    color: hsla(160, 100%, 37%, 1);
+    color: #00bd7e;
     font-weight: bold;
   }
 
   ul li {
     font-size: 1rem;
     padding: 0.3rem 1rem; 
+    cursor: pointer;
   }
 
   @media (hover: hover) {
@@ -122,7 +155,7 @@
   section {
     /* min-height: 1000px; */
     margin-top: 4rem;
-    min-height: 100vh;
+    min-height: 90vh;
     width: 100%;
     height: 100%;
     min-width: 350px;
@@ -154,10 +187,19 @@
       margin-top: 0.5rem;
     }
 
+    .MeSpan {
+      padding: 0.7rem 2rem;
+      font-size: 2rem;
+    }
+
+    /* #swithDarkLight{
+      width: 20px;
+      height: 30px;
+    } */
 
 
     ul li {
-      font-size: 1rem;
+      font-size: 1.4rem;
       padding: 1rem 1rem; /* 添加左右间隔 */
     }
   }

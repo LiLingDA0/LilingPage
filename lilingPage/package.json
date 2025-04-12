@@ -19,7 +19,11 @@
   "dependencies": {
     "@antv/g6": "^3.1.1",
     "@antv/hierarchy": "^0.5.0",
+    "@tsparticles/engine": "^3.8.1",
+    "@tsparticles/slim": "^3.8.1",
+    "@tsparticles/vue3": "^3.0.1",
     "pinia": "^3.0.1",
+    "tsparticles": "^3.8.1",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
   },

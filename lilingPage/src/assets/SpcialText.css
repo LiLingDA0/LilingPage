@@ -1,16 +1,55 @@
-#LilingSpan {
-    color: rgb(249, 208, 6);
+  .LilingSpan {
+    color: rgba(255, 234, 0, 0.966);
     padding: 0 0.5rem;
     font-size: 1rem;
     text-size-adjust: 100%;
     font-weight: bold;
+    display: inline-block;
+    white-space: nowrap; /* 防止短词换行 */
   }
 
-  #MeSpan {
+  .GIESpan {
+    color: hsla(160, 100%, 37%, 1);
+    padding: 0 0.5rem;
+    font-size: 1rem;
+    text-size-adjust: 100%;
+    font-weight: bold;
+    display: inline-block;
+    white-space: nowrap; /* 防止短词换行 */
+  }
+
+  .HNCUSpan {
+    color: rgb(6, 160, 249);
+    padding: 0 0.5rem;
+    font-weight: bold;
+    display: inline-block;
+    white-space: nowrap; /* 防止短词换行 */
+  }
+
+  .MeSpan {
     padding: 1rem 2rem;
-    font-size: 1.5rem;
     color: hsla(160, 100%, 37%, 1);
     font-weight: bold;
+    display: inline-block;
+    white-space: nowrap; /* 防止短词换行 */
+  }
+
+  .zjwzSpan {
+    color: rgb(249, 208, 6);
+    padding: 0 0.5rem;
+    text-size-adjust: 100%;
+    font-weight: bold;
+    display: inline-block;
+    white-space: nowrap; /* 防止短词换行 */
+  }
+
+  .CodeSpan{
+    padding: 1rem 2rem;
+    color: rgb(0, 189, 60);
+    font-weight: bold;
+    display: inline-block;
+    white-space: nowrap; /* 防止短词换行 */
+
   }
 
   #WebSpan {
@@ -19,4 +58,6 @@
     font-size: 1rem;
     text-size-adjust: 100%;
     font-weight: bold;
+    display: inline-block;
+    white-space: nowrap; /* 防止短词换行 */
   }
