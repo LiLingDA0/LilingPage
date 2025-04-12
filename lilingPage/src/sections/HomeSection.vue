@@ -106,17 +106,17 @@
           <span 
             class="TagChoose" 
             :class="{ active: activeTab === 'hobby' }"
-            @click="changeTagType('src/assets/tag/MyHobbyTag.json', 'hobby')"
+            @click="changeTagType('/tag/MyHobbyTag.json', 'hobby')"
           >爱好🤟</span>/ 
           <span 
             class="TagChoose"
             :class="{ active: activeTab === 'major' }"
-            @click="changeTagType('src/assets/tag/MyMajorTag.json', 'major')"
+            @click="changeTagType('/tag/MyMajorTag.json', 'major')"
           >专业🎓️</span>/ 
           <span 
             class="TagChoose"
             :class="{ active: activeTab === 'skills' }"
-            @click="changeTagType('src/assets/tag/MyCodeTag.json', 'skills')"
+            @click="changeTagType('/tag/MyCodeTag.json', 'skills')"
           >技能👩‍🔧</span>          
         </p>
         <br>

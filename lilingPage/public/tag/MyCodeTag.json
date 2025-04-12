@@ -1,0 +1,164 @@
+{
+    "id": "Code",
+    "children": [
+        {
+            "id": "BS",
+            "children": [
+                {
+                    "id": "Front",
+                    "children": [
+                        {
+                            "id": "Web",
+                            "children": [
+                                {
+                                    "id": "Vue3"
+                                },
+                                {
+                                    "id": "JavaScript"
+                                },
+                                {
+                                    "id": "HTML"
+                                },
+                                {
+                                    "id": "CSS"
+                                },
+                                {
+                                    "id": "构建工具",
+                                    "children": [
+                                        {
+                                            "id": "Vite"
+                                        },
+                                        {
+                                            "id": "Node.js"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "axios (HTTP 库)"
+                                },
+                                {
+                                    "id": "ElementPlus (UI 库)"
+                                },
+                                {
+                                    "id": "ThreeJS (3D 框架)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "APP",
+                            "children": [
+                                {
+                                    "id": "Java (Android)"
+                                },
+                                {
+                                    "id": "Kotlin"
+                                },
+                                {
+                                    "id": "HTML (混合开发)"
+                                },
+                                {
+                                    "id": "Android Studio"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "BackEnd",
+                    "children": [
+                        {
+                            "id": "Java (Spring)"
+                        },
+                        {
+                            "id": "Spring Boot 3"
+                        },
+                        {
+                            "id": "ffmpeg (音视频处理)"
+                        },
+                        {
+                            "id": "Servlet"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "CS",
+            "children": [
+                {
+                    "id": ".NET Framework",
+                    "children": [
+                        {
+                            "id": "C#"
+                        },
+                        {
+                            "id": "ArcObject (GIS二次开发)"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "Database",
+            "children": [
+                {
+                    "id": "SQL Server"
+                },
+                {
+                    "id": "PostgreSQL"
+                }
+            ]
+        },
+        {
+            "id": "Data Science & Analytics",
+            "children": [
+                {
+                    "id": "核心工具",
+                    "children": [
+                        {
+                            "id": "Python"
+                        }
+                    ]
+                },
+                {
+                    "id": "数据处理",
+                    "children": [
+                        {
+                            "id": "NumPy"
+                        },
+                        {
+                            "id": "pandas"
+                        }
+                    ]
+                },
+                {
+                    "id": "机器学习",
+                    "children": [
+                        {
+                            "id": "scikit-learn"
+                        }
+                    ]
+                },
+                {
+                    "id": "可视化",
+                    "children": [
+                        {
+                            "id": "matplotlib"
+                        },
+                        {
+                            "id": "folium (地理可视化)"
+                        }
+                    ]
+                },
+                {
+                    "id": "栅格分析",
+                    "children": [
+                        {
+                            "id": "rasterio"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
