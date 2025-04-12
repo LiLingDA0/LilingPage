@@ -82,7 +82,7 @@
         <br>        
         <p>来自&nbsp;<span class="zjwzSpan" @click="gotowZWebsite" style="cursor: pointer;">温州</span></p>
         <div>
-        <span>目前在 <span class="HNCUSpan" @click="gotoHNCUWebsite" style="cursor: pointer;">&nbsp;HNCU&nbsp;</span><img src="../assets/logo/hncu.png" class="logo" id="HNCULogo" @click="gotoHNCUWebsite" style="cursor: pointer;">
+        <span>目前在 <span class="HNCUSpan" @click="gotoHNCUWebsite" style="cursor: pointer;">&nbsp;HNCU&nbsp;</span><img src="/logo/hncu.png" class="logo" id="HNCULogo" @click="gotoHNCUWebsite" style="cursor: pointer;">
           <br>
           <span>学习
             <div class="major-container" @click="changeTagType('/tag/MyMajorTag.json', 'major') " style="cursor: pointer;">

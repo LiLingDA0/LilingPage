@@ -15,6 +15,8 @@
     const isSupported = 'Proxy' in window && 'Promise' in window
 
     if (!isSupported) {
+      console.error('浏览器不支持部分必要特性，请使用以下浏览器访问：')
+      console.error('Chrome 50+ | Firefox 52+ | Safari 10+ | Edge 15+')
       document.getElementById('app').style.display = 'none'
       document.write(`
         <div style="

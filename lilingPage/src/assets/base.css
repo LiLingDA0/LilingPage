@@ -43,6 +43,16 @@
   --vt-c-Tag-Choose-glow-color-light: #409eff66;
   --vt-c-Tag-Choose-glow-color-dark: #409eff66;
 
+
+  --vt-c-timeline-axis-color-light: #e1e1e1;
+  --vt-c-timeline-axis-color-dark: #6BD0A880;
+  --vt-c-year-bubble-light: #e0e0e0;
+  --vt-c-year-bubble-dark: #6BD0A880;
+  --vt-c-default-dot-light: #d7d8db;
+  --vt-c-default-dot-dark: #6BD0A880;
+  --vt-c-slim-text-light: #2e2e2e;
+  --vt-c-slim-text-dark: #666;
+
 }
 
 /* 定义项目特定的语义颜色变量 */
@@ -70,6 +80,12 @@
   --color-tag-choose-after: var(--vt-c-Tag-Choose-after-color-light);
   --color-tag-choose-hover: var(--vt-c-Tag-Choose-hover-color-light);
   --color-tag-choose-glow: var(--vt-c-Tag-Choose-glow-color-light);
+
+  --color-timeline-axis: var(--vt-c-timeline-axis-color-light);
+  --color-year-bubble: var(--vt-c-year-bubble-light);
+  --color-default-dot: var(--vt-c-default-dot-light);
+  --color-slim-text: var(--vt-c-slim-text-light);
+
 
   --section-gap: 160px;
 
@@ -101,6 +117,10 @@
   --color-tag-choose-hover: var(--vt-c-Tag-Choose-hover-color-dark);
   --color-tag-choose-glow: var(--vt-c-Tag-Choose-glow-color-dark);
 
+  --color-timeline-axis: var(--vt-c-timeline-axis-color-dark);
+  --color-year-bubble: var(--vt-c-year-bubble-dark);
+  --color-default-dot: var(--vt-c-default-dot-dark);
+  --color-slim-text: var(--vt-c-slim-text-dark);
 }
 
 :root {

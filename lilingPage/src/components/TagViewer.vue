@@ -20,8 +20,8 @@
 
   //默认light
   var color={
-      nodeFill: '#00E0A0',    // 荧光青绿，提升100%亮度
-      nodeStroke: '#007550',  // 深海绿增强轮廓对比
+      nodeFill: '#d7d8db',    // 荧光青绿，提升100%亮度
+      nodeStroke: '#90A4B8',  // 深海绿增强轮廓对比
       labelColor: '#1A2E40',  // 深蓝灰保持可读性
       edgeStroke: '#90A4B8',   // 浅冰蓝提升边缘活力
       helpTextColor: '#1A2E40'
