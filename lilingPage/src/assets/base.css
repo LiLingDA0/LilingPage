@@ -52,6 +52,8 @@
   --vt-c-default-dot-dark: #6BD0A880;
   --vt-c-slim-text-light: #2e2e2e;
   --vt-c-slim-text-dark: #666;
+  --vt-c-img-wave-light: #2c3e505d;
+  --vt-c-img-wave-dark: #c4c2c25d;
 
 }
 
@@ -85,6 +87,7 @@
   --color-year-bubble: var(--vt-c-year-bubble-light);
   --color-default-dot: var(--vt-c-default-dot-light);
   --color-slim-text: var(--vt-c-slim-text-light);
+  --color-img-wave: var(--vt-c-img-wave-light);
 
 
   --section-gap: 160px;
@@ -121,6 +124,7 @@
   --color-year-bubble: var(--vt-c-year-bubble-dark);
   --color-default-dot: var(--vt-c-default-dot-dark);
   --color-slim-text: var(--vt-c-slim-text-dark);
+  --color-img-wave: var(--vt-c-img-wave-dark);
 }
 
 :root {

@@ -1,13 +1,30 @@
 
 
 <template>
-  <div id="SectionRoot" class="timeline-container">
+  <div id="SectionRoot">
     <div>
-      <p style="font-size:4rem;color: hsla(160, 100%, 37%, 1);font-weight: bold;">关于</p>
-      <p style="font-size: 2.5rem;">哈喽&nbsp;,&nbsp;我是&nbsp;<span class="LilingSpan"> LiLing </span>&nbsp;👻</p>
-      <p style="font-size: 2.5rem;">聊聊我自己</p>
-      <div>
-        
+      <p style="font-size:3rem;color: hsla(160, 100%, 37%, 1);font-weight: bold;">关于</p>
+      <p style="font-size: 2rem;">哈喽&nbsp;,&nbsp;我是&nbsp;<span class="LilingSpan"> LiLing </span>&nbsp;👻</p>
+      <p style="font-size: 2rem;">聊聊我自己</p>
+      <div style="text-align: center;margin-top: -1rem;">
+        <div class="IntroduceContent">
+          <p style="margin-bottom: 10px;font-size: 1.3rem;font-weight: bold;">一个<span class="GIESpan">地空（GIS工科版）</span>大学生，<span class="zjwzSpan">温州瑞安gril🙎‍♀️</span>。千里迢迢（1072km）来到湖南益阳上学</p>
+          <p>如果要问我为什么要🚶‍♂️🚪背井离乡，只能说，这都是<span class="FateSpan">命运⚖️</span>的安排</p>
+          <p>当初报志愿的时候我基本上都瞄准🔍计算机🖥️和地理🌏相关的专业，天南海北都有，省内的占一半吧</p>
+          <p>我的下一个志愿就在甚至就在温州（好像是🤖机器人？）</p>
+          <p style="margin-bottom: 10px;margin-top: 10px;font-size: 1.3rem;font-weight: bold;">总之，在<span class="FateSpan">命运</span>的岔路口↔️上，我朝着<span class="GIESpan">GIS</span>出发🛣️了</p>
+        </div>
+        <div class="MeImageDiv" > <img src ="/logo/me.jpg"> </div>
+        <div class="IntroduceContent">
+          <p>日常生活中，我喜欢听音乐🎵、看小说📖，口味很杂，喜好纯凭玄学
+            <br>时间多的话也会启动🎮Steam（博德之门真好玩），天气好☀️的话，也会选择出去骑车🚴‍♀、散步🚶‍♀
+          </p>
+          <p>上了大学🏫后，有了许多新的经历⛵，也做了不少事💪，拿到了一些成绩🥇，也经历了挫折🥀</p>
+          <p>感觉自己成长🚀了许多，也越来越认识到自己成长得还远远不够</p>
+          <p style="margin-bottom: 10px;margin-top: 10px;font-size: 1.3rem;font-weight: bold;">还有更多的事，在<span class="FutureSpan">未来🔜🕰️</span>，等着我</p>
+        </div>
+      </div>
+      <div>        
       </div>
     </div>
     <div class="timeline-container">
@@ -101,6 +118,103 @@ export default defineComponent({
 </script>
 
 <style scoped>
+
+.IntroduceContent {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font: 1.2em sans-serif;
+}
+
+.IntroduceContent p{
+  margin-bottom: 5px;
+}
+
+.MeImageDiv {
+  display: inline-block; /* 使容器尺寸贴合内容 */
+  position: relative;
+  margin: 2%;
+}
+
+.MeImageDiv img {
+  position: relative;
+  z-index: 1; /* 确保图片在波纹上方 */
+  width: 15rem;
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  /* 新增美化属性 */
+  border: 6px solid var(--color-img-wave); 
+  transition: all 0.3s ease; /* 添加过渡动画 */
+  aspect-ratio: 1/1; /* 强制1:1比例 */
+
+}
+
+.MeImageDiv:hover::before,
+.MeImageDiv:hover::after {
+  animation: 
+    ripple 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite,
+    colorShift 1s ease-in-out infinite;
+}
+
+.MeImageDiv:hover img {
+  transform: scale(1.1); /* 悬停放大 */
+  filter: brightness(1.02); /* 轻微提亮 */
+}
+
+@keyframes colorShift {
+  0%, 100% { border-color: var(--color-img-wave); }
+  50% { border-color: rgba(255, 255, 255, 0.4); }
+}
+
+/* 调整波纹定位逻辑 */
+.MeImageDiv::before,
+.MeImageDiv::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 20px); /* 波纹大小 */
+  height: calc(100% + 20px);
+  border: 10px solid var(--color-img-wave); /* 主色调 */
+  border-radius: 50%;
+  animation: ripple 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none; /* 防止点击穿透 */
+}
+
+/* 精准波纹扩散计算 */
+@keyframes ripple {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    border-width: 2px;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.5);
+    border-width: 0;
+  }
+}
+
+/* 第二个波纹延迟 */
+.MeImageDiv::after {
+  animation-delay: 0.8s;
+}
+
+@keyframes ripple {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.3);
+  }
+}
+
 p {
   text-align: center;
 }
@@ -109,6 +223,7 @@ p {
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
+  margin-top: 5rem;
   padding: 40px 0;
 }
 
@@ -224,6 +339,7 @@ p {
 }
 
 ::v-deep(.highlight-tag) {
+  color: #1c1c34;
   background: #6BD0A880;
   padding: 2px 4px;
   border-radius: 3px;

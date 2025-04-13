@@ -57,3 +57,19 @@
     display: inline-block;
     white-space: nowrap; /* 防止短词换行 */
   }
+
+  .FateSpan {
+    color:brown;
+    text-size-adjust: 100%;
+    font-weight: bold;
+    display: inline-block;
+    white-space: nowrap; /* 防止短词换行 */
+  }
+
+  .FutureSpan {
+    color: rgb(6, 168, 249);
+    text-size-adjust: 100%;
+    font-weight: bold;
+    display: inline-block;
+    white-space: nowrap; /* 防止短词换行 */
+  }
