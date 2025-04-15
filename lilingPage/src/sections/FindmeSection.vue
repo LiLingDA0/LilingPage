@@ -9,7 +9,7 @@ export default defineComponent({
 <template>
   <div id="SectionRoot" class="container">
     <div class="content-wrapper">
-      <h1 class="title">找到我</h1>
+      <h1 class="title">找到我🙋‍♀️</h1>
       <div class="speech-bubble">
         <div class="bubble-content">
           <a href="" class="github-icon">
@@ -43,6 +43,7 @@ export default defineComponent({
 .title {
   font-size: 2.5rem;
   margin-bottom: 2rem;
+  font-weight: bold;
 }
 
 .speech-bubble {
