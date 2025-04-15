@@ -16,12 +16,24 @@
     <!-- Title -->
     <h2 class="card-title">{{ title }}</h2>
 
-    <!-- Main Image -->
+    <!-- 修改 Main Image 部分 -->
     <img
       v-if="img"
       :src="`/ProjectImg/${img}`"
       class="card-main-img"
+      @click="openPreview(img!)"
     />
+
+    <!-- 在 template 末尾添加预览层 -->
+    <div v-if="showPreview" class="preview-overlay" @click.self="closePreview">
+      <div class="preview-container">
+        <img 
+          :src="`/ProjectImg/${selectedImage}`" 
+          class="preview-image"
+        />
+        <button class="close-button" @click="closePreview">×</button>
+      </div>
+    </div>
 
     <!-- Description -->
     <!-- 替换原来的 <p class="card-describe">{{ describe }}</p> -->
@@ -71,6 +83,8 @@
 <script lang="ts">
 import { defineComponent, type PropType } from 'vue';
 import SvgIcon from './SvgIcon.vue';
+import { ref } from 'vue';
+
 
 interface LinkItem {
   href: string;
@@ -125,13 +139,71 @@ export default defineComponent({
       return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     };
 
-    return { highlightTags };
+    const showPreview = ref(false);
+    const selectedImage = ref('');
+
+    const openPreview = (img: string) => {
+      selectedImage.value = img;
+      showPreview.value = true;
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closePreview = () => {
+      showPreview.value = false;
+      document.body.style.overflow = '';
+    };
+
+    return { highlightTags,openPreview,closePreview,showPreview,selectedImage};
   }
 });
 </script>
 
 <style scoped>
 
+
+/* 在 style 部分添加 */
+.preview-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  cursor: zoom-out;
+}
+
+.preview-container {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.preview-image {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.close-button {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 3rem;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.close-button:hover {
+  opacity: 0.8;
+}
 
 .p-card{
   background-color: var(--color-background-mute);;
@@ -215,6 +287,7 @@ export default defineComponent({
   height: auto;
   margin: 15px 0;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .card-describe {

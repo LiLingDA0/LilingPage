@@ -98,7 +98,9 @@
           id="swithDarkLight"
           @click="toggleTheme" 
         >
+        <span style="font-size: small; cursor: pointer;" @click="toggleTheme">切换主题</span>
       </span>
+      
     </div>
     <ul>
       <li @click="scrollToSection('home')">首页</li>
