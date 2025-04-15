@@ -60,7 +60,7 @@
         ]
     },
     {
-        "logo": ".Net.svg",
+        "logo": "DotNet.svg",
         "title": "测绘技能大赛习题分享",
         "img": "CHJNDS.png",
         "describe": "分享一些我做过的题目，希望对大家有帮助，上图是构建TIN模型",
@@ -72,7 +72,7 @@
         ],
         "TechStack": [
             "C Sharp",
-            ".Net"
+            "DotNet"
         ]
     },
     {
