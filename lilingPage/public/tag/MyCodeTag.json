@@ -34,13 +34,13 @@
                                     ]
                                 },
                                 {
-                                    "id": "axios (HTTP 库)"
+                                    "id": "axios"
                                 },
                                 {
-                                    "id": "ElementPlus (UI 库)"
+                                    "id": "ElementPlus"
                                 },
                                 {
-                                    "id": "ThreeJS (3D 框架)"
+                                    "id": "ThreeJS"
                                 }
                             ]
                         },
@@ -54,7 +54,7 @@
                                     "id": "Kotlin"
                                 },
                                 {
-                                    "id": "HTML (混合开发)"
+                                    "id": "XML"
                                 },
                                 {
                                     "id": "Android Studio"
@@ -73,7 +73,7 @@
                             "id": "Spring Boot 3"
                         },
                         {
-                            "id": "ffmpeg (音视频处理)"
+                            "id": "ffmpeg"
                         },
                         {
                             "id": "Servlet"
@@ -146,7 +146,7 @@
                             "id": "matplotlib"
                         },
                         {
-                            "id": "folium (地理可视化)"
+                            "id": "folium"
                         }
                     ]
                 },

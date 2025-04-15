@@ -8,7 +8,7 @@
         <p style="font-size: 2rem;" class="observe-animation fade-up">聊聊我自己</p>
         <div style="text-align: center;margin-top: -1rem;">
           <div class="IntroduceContent observe-animation fade-up">
-            <p style="margin-bottom: 10px;font-size: 1.3rem;font-weight: bold;">一个<span class="GIESpan">地空（GIS工科版）</span>大学生，<span class="zjwzSpan">温州瑞安gril🙎‍♀️</span>。千里迢迢（1072km）来到湖南益阳上学</p>
+            <p style="margin-bottom: 10px;font-size: 1.3rem;font-weight: bold;">一个<span class="GIESpan">地空（GIS工科版）</span>大学生，<span class="zjwzSpan">温州瑞安girl🙎‍♀️</span>。千里迢迢（1072km）来到湖南益阳上学</p>
             <p>如果要问我为什么要🚶‍♂️🚪背井离乡，只能说，这都是<span class="FateSpan">命运⚖️</span>的安排</p>
             <p>当初报志愿的时候我基本上都瞄准🔍计算机🖥️和地理🌏相关的专业，天南海北都有，省内的占一半吧</p>
             <p>我的下一个志愿就在甚至就在温州（好像是🤖机器人？）</p>

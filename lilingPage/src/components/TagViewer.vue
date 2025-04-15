@@ -96,11 +96,20 @@
       }
     });
 
+    // 在BuildGraph函数顶部添加最大深度计算
+    const maxDepth = (function calcMaxDepth(node, currentDepth = 0) {
+      if (!node.children || node.children.length === 0) return currentDepth;
+      return Math.max(...node.children.map(child => 
+        calcMaxDepth(child, currentDepth + 1)
+      ));
+    })(data);
+
+    // 修改节点配置逻辑
     graph.node(function(node) {
-      const depth = node.depth || 0; // 获取节点层级
-      const baseSize = 26 + (5 * (5 - Math.min(depth, 5))); // 层级越浅尺寸越大
-      const fontSize = 12 + (2 * (5 - Math.min(depth, 5))); // 层级越浅字体越大
-      
+      const depthOffset = maxDepth - node.depth; // 深度倒序计算
+      const baseSize = 25 + (20 * depthOffset); // 最深层20px，每浅一层+10px
+      const fontSize = 15 + (5 * depthOffset);  // 最深层10px，每浅一层+2px
+
       return {
         size: baseSize,
         label: node.id,
@@ -111,7 +120,7 @@
         labelCfg: {
           avoidLabelOverlap: true,
           style: {
-            fontSize,
+            fontSize: Math.min(fontSize, 50), // 限制最大字号
             fill: color.labelColor 
           }
         }
