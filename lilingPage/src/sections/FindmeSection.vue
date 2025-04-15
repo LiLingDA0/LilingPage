@@ -56,6 +56,17 @@ export default defineComponent({
   margin: 0 auto;
 }
 
+/* 新增媒体查询 */
+@media (max-width: 700px) {
+  .speech-bubble {
+    width: 90%;
+    padding: 1.5rem; /* 可选：缩小内边距适应小屏幕 */
+    margin: 0 auto;  /* 保持居中 */
+  }
+}
+
+
+
 .speech-bubble::after {
   content: '';
   position: absolute;
