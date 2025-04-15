@@ -55,6 +55,19 @@
   --vt-c-img-wave-light: #2c3e505d;
   --vt-c-img-wave-dark: #c4c2c25d;
 
+  --vt-c-card-background-light: #8f8e8e49;
+  --vt-c-card-background-dark: #51515170;
+  --vt-c-card-text-color-light: #2e2e2e;
+  --vt-c-card-text-color-dark: #cdcdcd;
+  --vt-c-card-highlight-color-dark: #ffeb3b6d;
+  --vt-c-card-highlight-color-light: #6BD0A880;
+  --vt-c-card-divider-color-light: #626262;
+  --vt-c-card-divider-color-dark: #62a08b80;
+
+  --vt-c-email-btn-background-light: #409eff66;
+  --vt-c-email-btn-background-dark: #6BD0A880;
+
+  --vt-c:#24292f;
 }
 
 /* 定义项目特定的语义颜色变量 */
@@ -89,6 +102,12 @@
   --color-slim-text: var(--vt-c-slim-text-light);
   --color-img-wave: var(--vt-c-img-wave-light);
 
+  --color-card-background: var(--vt-c-card-background-light);
+  --color-card-text-color: var(--vt-c-card-text-color-light);
+  --color-card-highlight-color: var(--vt-c-card-highlight-color-light);
+  --color-card-divider-color:var(--vt-c-card-divider-color-light);
+
+  --color-email-btn-background: var(--vt-c-email-btn-background-light);
 
   --section-gap: 160px;
 
@@ -125,6 +144,13 @@
   --color-default-dot: var(--vt-c-default-dot-dark);
   --color-slim-text: var(--vt-c-slim-text-dark);
   --color-img-wave: var(--vt-c-img-wave-dark);
+
+  --color-card-background: var(--vt-c-card-background-dark);
+  --color-card-text-color: var(--vt-c-card-text-color-dark);
+  --color-card-highlight-color: var(--vt-c-card-highlight-color-dark);
+  --color-card-divider-color:var(var(--vt-c-card-divider-color-dark));
+
+  --color-email-btn-background: var(--vt-c-email-btn-background-dark);
 }
 
 :root {
@@ -167,4 +193,9 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.github-icon svg path {
+  fill: var(--color-text); /* 使用主题文本颜色 */
+  transition: fill 0.3s ease; /* 保持与主题切换动画一致 */
 }

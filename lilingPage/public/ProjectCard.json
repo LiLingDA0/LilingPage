@@ -1,9 +1,13 @@
 [
     {
         "logo": "Three.js.svg",
-        "title": "3D建筑分解和互动框架",
+        "title": "3D建筑分解和互动框架BVMS",
         "img": "BVMS.png",
-        "describe": "基于ThreeJS，使用规定的语法分解建筑模型和绑定交互，即可使用BVMS框架快速搭建3D建筑交互界面，目前算是烂尾状态，点击下方链接查看演示视频，有空的话，我会继续整理整理上传到github，目前的想法就是继续添加对管道模型的定义和支持",
+        "describe": "基于ThreeJS，使用规定的语法分解建筑模型和绑定交互，即可使用BVMS框架快速搭建3D建筑交互界面.<br><br>目前算是烂尾状态，点击下方链接查看演示视频，有空的话，我会继续整理整理上传到github，目前的想法就是继续添加对管道模型的定义和支持",
+        "tag": [
+            "ThreeJS",
+            "3D建筑交互界面"
+        ],
         "link": [
             {
                 "logo": "DefaultLink.svg",
@@ -19,7 +23,11 @@
         "logo": "Three.js.svg",
         "title": "3D面板",
         "img": "IPanel.png",
-        "describe": "从BVMS开发过程中，想要为3D建筑模型在添加面板，于是就有了这个项目算是BVMS的拓展模块，这个面板会跟随3D模型，具有一点空间特性，目前来说还是比较简陋，但是已经可以正常显示，点击下方链接查看演示视频，有空的话，我会继续整理整理上传到github",
+        "describe": "从BVMS开发过程中，想要为3D建筑模型在添加面板，于是就有了这个项目算是BVMS的拓展模块.<br><br>这个面板会跟随3D模型，具有一点空间特性，目前来说还是比较简陋，但是已经可以正常显示，点击下方链接查看演示视频，有空的话，我会继续整理整理上传到github",
+        "tag": [
+            "面板",
+            "空间特性"
+        ],
         "link": [
             {
                 "logo": "DefaultLink.svg",
@@ -35,7 +43,11 @@
         "logo": "Python.svg",
         "title": "K-means图像分类工具",
         "img": "KM.png",
-        "describe": "这个工具源自我的大数据分析作业，基于numpy库，输入待处理图片的数据，输出K-means分类处理后的图片，目前发布在我的github上，在PythonGIS库的GBDEX1文件夹下的classify.py文件，点击下方链接查看,有空的话，我也会在github上继续更新我在数据挖掘作业中用到的代码。",
+        "describe": "这个工具源自我的大数据分析作业，基于numpy库，输入待处理图片的数据，输出K-means分类处理后的图片.<br><br>目前发布在我的github上，在PythonGIS库的GBDEX1文件夹下的classify.py文件，点击下方链接查看,有空的话，我也会在github上继续更新我在数据挖掘作业中用到的代码。",
+        "tag": [
+            "大数据分析",
+            "K-means"
+        ],
         "link": [
             {
                 "logo": "Github.svg",
@@ -51,7 +63,7 @@
         "logo": ".Net.svg",
         "title": "测绘技能大赛习题分享",
         "img": "CHJNDS.png",
-        "describe": "分享一些我做过的题目，希望对大家有帮助，下图是构建TINm模型",
+        "describe": "分享一些我做过的题目，希望对大家有帮助，上图是构建TIN模型",
         "link": [
             {
                 "logo": "Github.svg",
@@ -67,7 +79,10 @@
         "logo": "IDWater.png",
         "title": "识水色APP",
         "img": "IDWater.jpg",
-        "describe": "一款可以通过拍照识别水色的App，后端使用SpringBoot3搭建，数据库是PostgreSQL，前端使用Android开发，主要使用Kotlin语言开发，点击下方链接查看演示视频，后续，可能会整理上传到github",
+        "describe": "一款可以通过拍照识别水色的App，后端使用SpringBoot3搭建，数据库是PostgreSQL，前端使用Android开发，主要使用Kotlin语言开发.<br><br>点击下方链接查看演示视频，后续，可能会整理上传到github",
+        "tag": [
+            "拍照识别水色"
+        ],
         "link": [
             {
                 "logo": "DefaultLink.svg",

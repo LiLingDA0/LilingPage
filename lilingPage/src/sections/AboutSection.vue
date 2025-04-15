@@ -152,39 +152,7 @@ export default defineComponent({
 
 <style scoped>
 
-/* 在 <style scoped> 中添加 */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(50px); }
-  to { opacity: 1; transform: translateY(0); }
-}
 
-@keyframes slideInLeft {
-  from { opacity: 0; transform: translateX(-100px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes slideInRight {
-  from { opacity: 0; transform: translateX(100px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-/* 初始隐藏状态 */
-.observe-animation {
-  opacity: 0;
-  transition: all 0.6s ease;
-  transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-/* 动画触发类 */
-.animate-active {
-  opacity: 1;
-  animation-duration: 0.8s;
-  animation-fill-mode: both;
-}
-
-.fade-up.animate-active { animation-name: fadeInUp; }
-.slide-left.animate-active { animation-name: slideInLeft; }
-.slide-right.animate-active { animation-name: slideInRight; }
 
 
 .IntroduceContent {
